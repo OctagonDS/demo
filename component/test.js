@@ -12,17 +12,13 @@ import * as FileSystem from 'expo-file-system'
 
 export function Test({ props, route, navigation }) {
   const [videoUrl, setVideoUrl] = useState([])
-  const [accordion, setAccordion] = useState(false)
   const [progressPercent, setProgressPercent] = useState(0)
   const [totalSize, setTotalSize] = useState(0)
-  const [progressSuccess, setProgressSuccess] = useState(false)
 
-  const video = React.useRef(null)
+  const video = useRef(null)
   const [status, setStatus] = React.useState({})
 
   const contentWidth = useWindowDimensions().width
-
-  const [refreshing, setRefreshing] = React.useState(false)
 
   async function arrayVideo() {
     let arrVideo = await FileSystem.readDirectoryAsync(
